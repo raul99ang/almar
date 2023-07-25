@@ -1,0 +1,71 @@
+<div class="card mt-5">
+    <div class="card-header">
+        {{this.isNew ? "Register EspecificacionesTecnicas" : "Update EspecificacionesTecnicas"}}
+    </div>
+    <div class="card-body">
+        <form (ngSubmit)="submitEspecificacionesTecnicas(forma)" #forma="ngForm" class="row g-3">
+<div class="col-md-6">
+<label for="label-id_especificacion"  class="form-label">id_especificacion:</label>"
+<input #inputid_especificacion="ngModel"  type="text" name="id_especificacion" [ngClass]="{'is-invalid': inputid_especificacion.touched && inputid_especificacion.hasError('required') }" [(ngModel)]="especificacionestecnicas.id_especificacion" class="form-control" id="id_especificacion" value="" required>
+<div class="invalid-feedback">
+                Field required
+            </div>
+        </div>
+<div class="col-md-6">
+<label for="label-tipoSistema"  class="form-label">tipoSistema:</label>"
+<input #inputtipoSistema="ngModel"  type="text" name="tipoSistema" [ngClass]="{'is-invalid': inputtipoSistema.touched && inputtipoSistema.hasError('required') }" [(ngModel)]="especificacionestecnicas.tipoSistema" class="form-control" id="tipoSistema" value="" required>
+<div class="invalid-feedback">
+                Field required
+            </div>
+        </div>
+<div class="col-md-6">
+<label for="label-tipoBaseDeDatos"  class="form-label">tipoBaseDeDatos:</label>"
+<input #inputtipoBaseDeDatos="ngModel"  type="text" name="tipoBaseDeDatos" [ngClass]="{'is-invalid': inputtipoBaseDeDatos.touched && inputtipoBaseDeDatos.hasError('required') }" [(ngModel)]="especificacionestecnicas.tipoBaseDeDatos" class="form-control" id="tipoBaseDeDatos" value="" required>
+<div class="invalid-feedback">
+                Field required
+            </div>
+        </div>
+<div class="col-md-6">
+<label for="label-cantidadUsuarios"  class="form-label">cantidadUsuarios:</label>"
+<input #inputcantidadUsuarios="ngModel"  type="text" name="cantidadUsuarios" [ngClass]="{'is-invalid': inputcantidadUsuarios.touched && inputcantidadUsuarios.hasError('required') }" [(ngModel)]="especificacionestecnicas.cantidadUsuarios" class="form-control" id="cantidadUsuarios" value="" required>
+<div class="invalid-feedback">
+                Field required
+            </div>
+        </div>
+<div class="col-md-6">
+<label for="label-tipoServidor"  class="form-label">tipoServidor:</label>"
+<input #inputtipoServidor="ngModel"  type="text" name="tipoServidor" [ngClass]="{'is-invalid': inputtipoServidor.touched && inputtipoServidor.hasError('required') }" [(ngModel)]="especificacionestecnicas.tipoServidor" class="form-control" id="tipoServidor" value="" required>
+<div class="invalid-feedback">
+                Field required
+            </div>
+        </div>
+<div class="col-md-6">
+<label for="label-plataforma"  class="form-label">plataforma:</label>"
+<input #inputplataforma="ngModel"  type="text" name="plataforma" [ngClass]="{'is-invalid': inputplataforma.touched && inputplataforma.hasError('required') }" [(ngModel)]="especificacionestecnicas.plataforma" class="form-control" id="plataforma" value="" required>
+<div class="invalid-feedback">
+                Field required
+            </div>
+        </div>
+<div class="col-md-6">
+<label for="label-sistemaOperativo"  class="form-label">sistemaOperativo:</label>"
+<input #inputsistemaOperativo="ngModel"  type="text" name="sistemaOperativo" [ngClass]="{'is-invalid': inputsistemaOperativo.touched && inputsistemaOperativo.hasError('required') }" [(ngModel)]="especificacionestecnicas.sistemaOperativo" class="form-control" id="sistemaOperativo" value="" required>
+<div class="invalid-feedback">
+                Field required
+            </div>
+        </div>
+<div class="col-md-6">
+<label for="label-id_Proyecto"  class="form-label">id_Proyecto:</label>"
+<input #inputid_Proyecto="ngModel"  type="text" name="id_Proyecto" [ngClass]="{'is-invalid': inputid_Proyecto.touched && inputid_Proyecto.hasError('required') }" [(ngModel)]="especificacionestecnicas.id_Proyecto" class="form-control" id="id_Proyecto" value="" required>
+<div class="invalid-feedback">
+                Field required
+            </div>
+        </div>
+<div class="col-12 text-center">
+            <button class=" btn btn-primary" type="submit" [disabled]="forma.invalid">{{this.isNew ? "Register" : "Update"}}</button>
+            <button style="margin-left: 10px;" class=" btn btn-danger" type="button" (click)="limpiarForm(forma)">Clear</button>
+            <button *ngIf="!this.isNew" style="margin-left: 10px;" class=" btn btn-danger" type="button" (click)="emitChange.emit()">Cancel</button>
+          </div>
+      </form>
+    </div>
+</div>
+<router-outlet></router-outlet> 

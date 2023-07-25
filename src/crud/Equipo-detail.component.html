@@ -1,0 +1,43 @@
+<div class="card mt-5">
+    <div class="card-header">
+        {{this.isNew ? "Register Equipo" : "Update Equipo"}}
+    </div>
+    <div class="card-body">
+        <form (ngSubmit)="submitEquipo(forma)" #forma="ngForm" class="row g-3">
+<div class="col-md-6">
+<label for="label-id_responsable"  class="form-label">id_responsable:</label>"
+<input #inputid_responsable="ngModel"  type="text" name="id_responsable" [ngClass]="{'is-invalid': inputid_responsable.touched && inputid_responsable.hasError('required') }" [(ngModel)]="equipo.id_responsable" class="form-control" id="id_responsable" value="" required>
+<div class="invalid-feedback">
+                Field required
+            </div>
+        </div>
+<div class="col-md-6">
+<label for="label-nombre"  class="form-label">nombre:</label>"
+<input #inputnombre="ngModel"  type="text" name="nombre" [ngClass]="{'is-invalid': inputnombre.touched && inputnombre.hasError('required') }" [(ngModel)]="equipo.nombre" class="form-control" id="nombre" value="" required>
+<div class="invalid-feedback">
+                Field required
+            </div>
+        </div>
+<div class="col-md-6">
+<label for="label-correo"  class="form-label">correo:</label>"
+<input #inputcorreo="ngModel"  type="text" name="correo" [ngClass]="{'is-invalid': inputcorreo.touched && inputcorreo.hasError('required') }" [(ngModel)]="equipo.correo" class="form-control" id="correo" value="" required>
+<div class="invalid-feedback">
+                Field required
+            </div>
+        </div>
+<div class="col-md-6">
+<label for="label-id_puesto"  class="form-label">id_puesto:</label>"
+<input #inputid_puesto="ngModel"  type="text" name="id_puesto" [ngClass]="{'is-invalid': inputid_puesto.touched && inputid_puesto.hasError('required') }" [(ngModel)]="equipo.id_puesto" class="form-control" id="id_puesto" value="" required>
+<div class="invalid-feedback">
+                Field required
+            </div>
+        </div>
+<div class="col-12 text-center">
+            <button class=" btn btn-primary" type="submit" [disabled]="forma.invalid">{{this.isNew ? "Register" : "Update"}}</button>
+            <button style="margin-left: 10px;" class=" btn btn-danger" type="button" (click)="limpiarForm(forma)">Clear</button>
+            <button *ngIf="!this.isNew" style="margin-left: 10px;" class=" btn btn-danger" type="button" (click)="emitChange.emit()">Cancel</button>
+          </div>
+      </form>
+    </div>
+</div>
+<router-outlet></router-outlet> 

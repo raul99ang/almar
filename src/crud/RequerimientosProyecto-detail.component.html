@@ -1,0 +1,36 @@
+<div class="card mt-5">
+    <div class="card-header">
+        {{this.isNew ? "Register RequerimientosProyecto" : "Update RequerimientosProyecto"}}
+    </div>
+    <div class="card-body">
+        <form (ngSubmit)="submitRequerimientosProyecto(forma)" #forma="ngForm" class="row g-3">
+<div class="col-md-6">
+<label for="label-id_requerimiento"  class="form-label">id_requerimiento:</label>"
+<input #inputid_requerimiento="ngModel"  type="text" name="id_requerimiento" [ngClass]="{'is-invalid': inputid_requerimiento.touched && inputid_requerimiento.hasError('required') }" [(ngModel)]="requerimientosproyecto.id_requerimiento" class="form-control" id="id_requerimiento" value="" required>
+<div class="invalid-feedback">
+                Field required
+            </div>
+        </div>
+<div class="col-md-6">
+<label for="label-id_proyecto"  class="form-label">id_proyecto:</label>"
+<input #inputid_proyecto="ngModel"  type="text" name="id_proyecto" [ngClass]="{'is-invalid': inputid_proyecto.touched && inputid_proyecto.hasError('required') }" [(ngModel)]="requerimientosproyecto.id_proyecto" class="form-control" id="id_proyecto" value="" required>
+<div class="invalid-feedback">
+                Field required
+            </div>
+        </div>
+<div class="col-md-6">
+<label for="label-descripcion"  class="form-label">descripcion:</label>"
+<input #inputdescripcion="ngModel"  type="text" name="descripcion" [ngClass]="{'is-invalid': inputdescripcion.touched && inputdescripcion.hasError('required') }" [(ngModel)]="requerimientosproyecto.descripcion" class="form-control" id="descripcion" value="" required>
+<div class="invalid-feedback">
+                Field required
+            </div>
+        </div>
+<div class="col-12 text-center">
+            <button class=" btn btn-primary" type="submit" [disabled]="forma.invalid">{{this.isNew ? "Register" : "Update"}}</button>
+            <button style="margin-left: 10px;" class=" btn btn-danger" type="button" (click)="limpiarForm(forma)">Clear</button>
+            <button *ngIf="!this.isNew" style="margin-left: 10px;" class=" btn btn-danger" type="button" (click)="emitChange.emit()">Cancel</button>
+          </div>
+      </form>
+    </div>
+</div>
+<router-outlet></router-outlet> 
